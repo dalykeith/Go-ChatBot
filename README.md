@@ -30,7 +30,7 @@ cd Go-ChatBot
 Now you can build  with the command
 
 ```
-go build <Go-ChatBot.go>
+go build Go-ChatBot.go
 ```
 
 and then to run the program
