@@ -18,33 +18,28 @@ Install Go on your device by visiting [GoLang](https://golang.org/)
 Clone the repository in terminal/cmd by executing the following command
 
 ```
-git clone https://github.com/dalykeith/Go-ChatBot.git
+git clone https://github.com/dalykeith/mia.git
 ```
 
 Locate file by
 
 ```
-cd Go-ChatBot
+cd mia
 ```
 
 Now you can build  with the command
 
 ```
-go build Go-ChatBot.go
+go build mia.go
 ```
 
 and then to run the program
 
 ```
 Mac:
-./Go-ChatBot
+./mia
 
 else Windows:
-./Go-Chatbot.exe
+./mia.exe
 ```
 
-or simply use
-
-```
-go run Go-ChatBot
-```

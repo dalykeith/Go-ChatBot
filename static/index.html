@@ -1,0 +1,162 @@
+<!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mia</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  
+  <!--CSS-->
+  <style>
+  .navbar-header {
+    color: white;
+    float: right;
+    padding: 50px;
+    padding-left: 550px;
+    text-align: center;
+    width: 200px;
+    /*padding-bottom: 40px;*/
+    padding-right: 500px;
+  }
+  
+  /*.navbar-brand {float:none;}*/
+  body{
+    
+  padding-top: 20px;
+  /*position: center;*/
+  padding-bottom: 80px;
+  }
+  .form-control{
+    align-content: center;
+    padding-left: 100px;
+  }
+
+  body {
+    image-orientation: center;
+    background-image: url("mia.jpg");
+    /*background-position: left;*/
+    /*height: 50%;*/
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-control1{
+  float: right;
+  opacity: 0.5;
+  width: 60%;
+  
+  /*align-content: right;*/
+  
+} 
+.container{
+  float: right;
+  padding-right: 400px;
+}
+
+
+
+  </style>
+  </head>
+
+<body>
+  <!--Navbar Header Container-->
+    <div class="container">
+        <nav class="navbar">
+           <div class="navbar-header">
+               <a  class="navbar-brand navbar-dark fixed-top-lg bg-dark">  Welcome to Mia the Chatbot  </a>
+         </nav>
+    </div>
+              
+   <!--Conversation Container-->           
+    <div class="container" align="right">
+       <p  id="miaOutput"></p> 
+    </div>
+
+<!--Message Input Container-->  
+    <div class="container fixed-bottom bg-dark"><br>
+        <form>
+                <input id="userInput" class="inputBox"placeholder ="Enter message"></input>
+                <small id="help1" class="form-text text-white ">Have an aul chat with Mia</small>
+                <small id="help2" class="form-text text-white ">Type message and press enter :)</small>
+                <p class="text-white"><br>Author: Keith Daly 2017</p>
+        </form> 
+          </div>        
+        </div>
+      </div>
+   </div>
+</body>
+
+  
+    <!--<footer>..</footer>-->
+    <!-- <p class="list-group-item list-group-item-primary text-left"> hi </p>
+    <p class="list-group-item list-group-item-default text-right"> hi </p>
+    <p class="list-group-item list-group-item-primary text-left"> hi </p>-->
+    
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+<!-- JavaScript -->
+    <script>
+      // I/O var
+      const inputText = $("#userInput");
+      const ouputText = $("#miaOutput");
+
+      // console.log("test");
+
+      // User press enter key  for follow e (13 = Enter on keyboard)
+      inputText.keypress(function(e){
+      if(e.keyCode != 13){
+          return;
+      }
+
+
+    // ToStop Data on pagefresh
+    e.preventDefault();
+
+    // Variable Setup
+    const userInput = inputText.val();
+    inputText.val("");
+     // User response output
+    const userPrompt = {"input" : userInput }
+    ouputText.append( "<p>"  +"<b class=\"userName\">User: </b>"+ userInput + "</p>");
+    
+    // gets response for output
+    $.get("/user-input", userPrompt)
+        .done(response => {
+            // Mia response output
+            const output =  "<p>" + "<b class=\"userName\">Mia: </b>"+ response + "</p>";
+            console.log(response);
+
+            // The bots response with HTML elements are output to the webpage with an alert
+            setTimeout(function(){ouputText.append(output)});
+            
+         })
+});
+
+
+
+
+
+
+
+
+      // $("#user-input-form").submit(
+      //   function(event) {
+      //     event.preventDefault();
+      //     $.get('/user-input', { value: $('#user-input').val() } )
+      //       .done(function (data) {
+      //         $('#mia-Out').val(data);
+      //       })
+      //   });
+    </script>
+  <!--</body>-->
+</html>
