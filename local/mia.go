@@ -1,6 +1,10 @@
-// A simple web application example.
-// Taken from: https://golang.org/doc/articles/wiki/
-// https://ianmcloughlin.github.io :: 2017-09-13
+// Adapted from:
+// https://golang.org/doc/articles/wiki/
+// https://ianmcloughlin.github.io
+// https://github.com/data-representation/eliza/blob/master/data/responses.txt
+// https://data-representation.github.io/
+// https://medium.com/gopypi/talking-to-a-nltk-chatbot-d08937296c7d
+// https://data-representation.github.io/notes/ajax.html
 
 package main
 
