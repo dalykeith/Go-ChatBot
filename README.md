@@ -24,7 +24,7 @@ git clone https://github.com/dalykeith/mia.git
 Locate file by
 
 ```
-cd mia
+cd mia/mia/local
 ```
 
 Now you can build  with the command
